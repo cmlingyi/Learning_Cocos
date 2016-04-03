@@ -1,8 +1,8 @@
 #include "AppDelegate.h"
 #include "HelloWorldScene.h"
-#include "TotalView.h"
-#include "ClippingNode_test.h"
-#include "TextFiledTTFView.h"
+#include "TableView/TotalView.h"
+#include "ClippingNode/ClippingNode_test.h"
+#include "TextFiledTTF/TextFiledTTFView.h"
 
 USING_NS_CC;
 
