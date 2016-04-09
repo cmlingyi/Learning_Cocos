@@ -15,6 +15,8 @@ class ClippingNode_test : public Layer
 public:
 	static Scene * create();
 	virtual bool init();
+	void update(float dt);
 protected:
 private:
+	int __updateTimes = 0;
 };

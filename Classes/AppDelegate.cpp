@@ -3,6 +3,7 @@
 #include "TableView/TotalView.h"
 #include "ClippingNode/ClippingNode_test.h"
 #include "TextFiledTTF/TextFiledTTFView.h"
+#include "Network\HttpTest.h"
 
 USING_NS_CC;
 
@@ -46,6 +47,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	//auto scene = TotalView::create();
 	//auto scene = ClippingNode_test::create();
 	auto scene = ClippingNode_test::create();
+	HttpTest *httpTest = new HttpTest();
+	httpTest->onHttpRequest("post", "http://httpbin.org/post");
 
     // run
 	director->runWithScene(scene);

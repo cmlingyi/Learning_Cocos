@@ -33,11 +33,13 @@ bool ClippingNode_test::init()
 		return false;
 	}
 
+	this->scheduleUpdate();
+
 	static int a = 1;
 	std::vector<int> vec(5);
 	generate(vec.begin(), vec.end(), []{return a++; });
-	auto iter =  vec.begin();
-	CCLOG("a = %d",a);
+	auto iter = vec.begin();
+	CCLOG("a = %d", a);
 	for (; iter != vec.end(); iter++)
 	{
 		CCLOG("value = %d", (*iter));
@@ -60,10 +62,15 @@ bool ClippingNode_test::init()
 	this->addChild(clipper);
 
 	Size s = titleSp->getContentSize();
-	auto moveAction = MoveBy::create(2.0f, Vec2(clipSize.width*2, 0));//moveTo() can't use reverse function
+	auto moveAction = MoveBy::create(2.0f, Vec2(clipSize.width * 2, 0));//moveTo() can't use reverse function
 	auto moveBackAction = moveAction->reverse();
 	sparkSp->runAction(RepeatForever::create(Sequence::create(moveAction, moveBackAction, NULL)));
 
 	return true;
+}
+
+void ClippingNode_test::update(float dt)
+{
+	printf("update time = %d", __updateTimes++);
 }
 
